@@ -3,12 +3,19 @@ const cookieParser = require('cookie-parser');
 const cookieSession = require('cookie-session');
 const cors = require('cors');
 const connectWithDB = require('./config/db');
+const cloudinary = require('cloudinary').v2
 
 require('dotenv').config();
 
 const app = express();
 
 connectWithDB();
+
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET
+})
 
 app.use(cookieParser());
 
