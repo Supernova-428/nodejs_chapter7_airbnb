@@ -26,6 +26,8 @@ app.use(cors({
     credentials: true
 }))
 
+app.use('/', require('./routes'));
+
 app.listen(process.env.PORT || 8000, (err) => {
     if(err) {
         console.log('Error in connecting to server: ' + err)
